@@ -1,4 +1,4 @@
-# Auth with mysql
+# Auth with mysql (password removed)
 mysql -u root -p
 
 # Create DB
@@ -44,7 +44,7 @@ create table cost (
 	id INT NOT NULL AUTO_INCREMENT,
 	startid int,
 	stopid int,
-	price varchar(6)
+	price varchar(6),
 	PRIMARY KEY (id)
 );
 
@@ -53,8 +53,17 @@ create table journey (
 	id INT NOT NULL AUTO_INCREMENT, 
 	uid int, 
 	startid int,
-	stopid, int,
+	stopid int,
 	starttime datetime,
 	stoptime datetime,
+	PRIMARY KEY(id)
+);
+
+# Create Tickets Table 
+create table tickets (
+	id INT NOT NULL AUTO_INCREMENT, 
+	word varchar(256),
+	date datetime,
+	colour varchar(9),
 	PRIMARY KEY(id)
 );
