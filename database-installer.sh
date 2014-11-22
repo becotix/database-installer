@@ -4,9 +4,12 @@ mysql -u root -p
 # Create DB
 create database becotix_db; 
 
+# Use the becotix db 
+use becotix_db; 
+
 # Create User table
 create table user (
-	id INT NOT NULL AUTO INCREMENT, 
+	id INT NOT NULL AUTO_INCREMENT, 
 	name varchar(50) not null,
 	email varchar(100) not null,
 	addr1 varchar(120) not null,
@@ -20,6 +23,38 @@ create table user (
 );
 
 # Create Stop Table
+create table stop (
+	id INT NOT NULL AUTO_INCREMENT, 
+	name varchar(80) not null,
+	bid INT NOT NULL,
+	lat_long varchar(200),
+	PRIMARY KEY (id)
+);
+
 # Create Beacon Table
+create table beacon (
+	id INT NOT NULL AUTO_INCREMENT,
+	major varchar(10) not null,
+	minor varchar(10) not null, 
+	PRIMARY KEY (id)
+);
+
+# Create Cost table
+create table cost (
+	id INT NOT NULL AUTO_INCREMENT,
+	startid int,
+	stopid int,
+	price varchar(6)
+	PRIMARY KEY (id)
+);
+
 # Create Journey Table
-# Create Cost Table
+create table journey (
+	id INT NOT NULL AUTO_INCREMENT, 
+	uid int, 
+	startid int,
+	stopid, int,
+	starttime datetime,
+	stoptime datetime,
+	PRIMARY KEY(id)
+);
